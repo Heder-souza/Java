@@ -12,6 +12,7 @@ public class Exercicio_1 {
         System.out.println("Bem-vindo ao Sistema Comercial, " +nome +". Seu acesso como " +cargo+ " foi configurado com sucesso.");
 
         scanner.close();
+
     }
     
 }

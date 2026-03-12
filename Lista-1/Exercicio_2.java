@@ -14,6 +14,7 @@ public class Exercicio_2 {
 
         System.out.println("O preço final de lucro do "+produto +" é "+ valorCusto);
         scanner.close();
+        
     }
     
 }

@@ -16,5 +16,6 @@ public class Exercicio_4{
         System.out.println("O valor a ser no "+produto+" pago em real é R$"+valorReal);
 
         scanner.close();
+        
     }
 }

@@ -16,5 +16,6 @@ public class Exercicio_3 {
         System.out.println("Você comprou "+quantidade+" "+produto+"(s) a R$"+valorUnitario+" e deverá pagar R$"+ valorPago);
 
         scanner.close();
+        
     }
 }
