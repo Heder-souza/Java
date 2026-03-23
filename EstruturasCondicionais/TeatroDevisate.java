@@ -224,6 +224,7 @@ public class TeatroDevisate {
                 }
 
                 default:
+                    System.out.println("Selecione uma opção valida!!!");
                     break;
             }
         } while (opcao != 0);
