@@ -25,6 +25,7 @@ public class TeatroDevisate {
             System.out.println("4 - Comprar Cadeira");
             System.out.println("5 - Cancelar reserva");
             System.out.println("6 - Relatório Financeiro");
+            System.out.println("7 - Menu de exercicios");
             System.out.println("0 - Sair");
             System.out.println("============================");
 
@@ -219,8 +220,76 @@ public class TeatroDevisate {
                         System.out.println("Receita Potencial Máxima: R$"+(144*ingresso[s-1]));
                     }
                     break;
+                }
 
+                case 7:{
+                    String [] titulos = {"Par ou Ímpar", "Maior de Dois Números","Aprovação Escolar","Classificação de Temperatura","Calculadora Simples com Switch", "Ano Bissexto", "Triângulo Válido", "IMC", "Dia da Semana com Switch","Positivo, Negativo ou Zero", "Ingresso de Cinema", "Nota por Conceito", "Estação do Ano com Switch", "Maior de Três Números", "Verificador de Login", "Múltiplo de 3 e 5", "Desconto em Compra", "Número Romano com Switch", "Velocidade e Multa", "Jogo Pedra, Papel e Tesoura"};
+                    String[] enunciados = {
+                        "Leia um número inteiro e informe se ele é par ou ímpar.\nObrigatório: use o operador ternário para exibir a mensagem.",
+                        "Leia dois números inteiros e exiba qual é o maior.\nObrigatório: use o operador ternário para determinar e exibir o maior.",
+                        "Leia a média de um aluno (0 a 10) e exiba:\n- Aprovado se média >= 7\n- Recuperação se média >= 5 e < 7\n- Reprovado se média < 5",
+                        "Leia a temperatura em graus Celsius e classifique:\n- Abaixo de 15°C = Frio\n- Entre 15°C e 25°C = Agradável\n- Acima de 25°C = Quente\nDesafio: use o ternário aninhado.",
+                        "Leia dois números e um operador (+, -, *, /) e realize a operação\ncorrespondente usando switch.\nTrate a divisão por zero.",
+                        "Leia um ano e informe se ele é bissexto ou não.\nUm ano é bissexto se divisível por 4,\nexceto centenários, salvo os divisíveis por 400.",
+                        "Leia três lados e verifique se formam um triângulo válido.\nSe sim, classifique como equilátero, isósceles ou escaleno.",
+                        "Leia o peso (kg) e a altura (m), calcule o IMC (peso/altura²) e classifique:\n- < 18.5 = Abaixo do peso\n- 18.5 a 25 = Peso normal\n- 25 a 30 = Sobrepeso\n- >= 30 = Obesidade",
+                        "Leia um número de 1 a 7 e exiba o nome do dia da semana usando switch.\nPara qualquer outro número, exiba Dia inválido.",
+                        "Leia um número e informe se é positivo, negativo ou zero.\nObrigatório: use o operador ternário aninhado.",
+                        "Uma sala de cinema cobra:\n- Menores de 12 anos: R$ 10,00\n- Entre 12 e 60 anos: R$ 20,00\n- Acima de 60 anos: R$ 10,00\nLeia a idade e exiba o valor do ingresso.",
+                        "Leia uma nota (0-10) e exiba o conceito:\n- 9 a 10 = A\n- 7 a 8 = B\n- 5 a 6 = C\n- 0 a 4 = D",
+                        "Leia o número do mês (1-12) e exiba a estação do ano\ncorrespondente no hemisfério sul usando switch.",
+                        "Leia três números inteiros e exiba qual é o maior entre os três.\nTrate o caso de empate.",
+                        "Defina um usuário e senha fixos no código.\nLeia o usuário e a senha digitados e exiba\nAcesso permitido ou Acesso negado usando o operador ternário.",
+                        "Leia um número inteiro e informe:\n- Se é múltiplo de 3 e de 5 simultaneamente\n- Se é múltiplo apenas de 3\n- Se é múltiplo apenas de 5\n- Se não é múltiplo de nenhum",
+                        "Uma loja dá desconto conforme o valor da compra:\n- Acima de R$ 500 = 20% de desconto\n- Entre R$ 200 e R$ 500 = 10% de desconto\n- Abaixo de R$ 200 = sem desconto\nLeia o valor e exiba o valor final após o desconto.",
+                        "Leia um número de 1 a 10 e exiba seu equivalente\nem algarismo romano usando switch.",
+                        "Leia a velocidade de um veículo e o limite da via. Classifique:\n- Dentro do limite = Sem multa\n- Até 20% acima = Multa leve\n- Entre 20% e 50% acima = Multa grave\n- Acima de 50% = Multa gravíssima + suspensão",
+                        "Leia a escolha de dois jogadores (pedra, papel ou tesoura)\ne determine quem venceu ou se houve empate.\nUse o operador ternário para exibir o resultado final."
+                    };
+                    int paginaAtual = 0;
+                    int itensPorPagina = 7;
+                    int totalExercicios = 20;
+                    int totalPaginas = (int) Math.ceil((double) totalExercicios / itensPorPagina);
+                    String escolha;
 
+                    
+
+                    do{
+                        int inicio = paginaAtual * itensPorPagina;
+                        int fim = Math.min(inicio + itensPorPagina, totalExercicios);
+
+                        System.out.println("\n======Pagina "+(paginaAtual+1)+"=======\n");
+                        for (int i = inicio; i < fim; i++) {
+                            System.out.println((i+1)+" - "+titulos[i]);
+                        }
+                        System.out.println("=================================");
+
+                        System.out.println(paginaAtual > 0 ? "A - pagina anterior" : "");
+
+                        System.out.println(paginaAtual < totalPaginas-1 ? "P - proxima pagina": "");
+                        
+                        System.out.println("V - voltar");
+
+                        escolha = scanner.next().toUpperCase();
+
+                        if (escolha.equals("A")) {
+                            paginaAtual--;
+                        }
+                        else if (escolha.equals("P")) {
+                            paginaAtual++;
+                        }
+                        else if(!escolha.equals("V")){
+                            int n = Integer.parseInt(escolha);
+                            System.out.println(enunciados[n-1]);
+                        }
+
+                    }
+                    while(!escolha.equals("V"));
+                    break;
+                }
+
+                case 0:{
+                    System.out.println("Saindo do sistema");
                 }
 
                 default:
